@@ -6,14 +6,9 @@ $(document).ready(() => {
     let thorImg = $('#thorImg');
     let captainAmericaImg = $('#captainAmericaImg');
     button.click(() => {
-        hulkImg.fadeIn(3000);
-        ironManImg.removeClass("hide");
-        thorImg.removeClass("hide");
-        captainAmericaImg.removeClass("hide");
+        hulkImg.fadeIn(2000);
+        ironManImg.fadeIn(3000)
+        thorImg.fadeIn(1000)
+        captainAmericaImg.fadeIn(900);
     });
-    // $("button").click(function(){
-    //     $("#div1").fadeIn();
-    //     $("#div2").fadeIn("slow");
-    //     $("#div3").fadeIn(3000);
-    //   });
 })

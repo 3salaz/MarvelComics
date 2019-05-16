@@ -39,3 +39,6 @@ body{
     position: fixed;
     z-index: 4;  
 }
+.btn{
+    color: darkgray;
+}
