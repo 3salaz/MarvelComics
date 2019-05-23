@@ -9,50 +9,14 @@
     <script src="./public/vendors/html2canvas/html2canvas.min.js"></script>
     <script src="./public/vendors/chance/chance.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./public/vendors/chance/chance.js"></script>
+    <script src="./public/vendors/jQuery/jquery-ui-1.9.2/ui/jquery.ui.effect.js"></script>
     <title>Snap</title>
 </head>
 <body>
-    <div class="wrapper">
         <div class="content">
-            <img class=blackPanther-img src="./public/artwork/black-panther.png" alt="black-panther">
-            <button id="snapBtn" class="snap-btn">Snap</button>
-        </div>
-    </div>
-    <script>
-        let imageDataArray = [];
-        let canvasCount = 35;
-
-        function weightedRandomDistrib(peak) {
-            let prob = [], seq = [];
-            for(let i=0; i<canvasCount;i++) {
-                prob.push(Math.pow(canvasCount-Math.abs(peak-i),3));
-                seq.push(i);
-            }
-            return chance.weighted(seq, prob);
-        }
-        $('#snapBtn').click( () => {
-            
-            // on clicking snap button, use html 2 canvas and pass in the paramater of .contents
-            html2canvas($('.content')[0]).then(canvas => {
-                let ctx = canvas.getContext("2d");
-                const imageData = ctx.getImageData(0,0, canvas.width, canvas.height);
-                const pixelArr = imageData.data;
-                
-                createBlankImageData(imageData);
-
-                // put pixel info to imageDataArray
-                for (let i = 0; i < pixelArr.length; i+=4) {
-                    // find the highest probability canvas the pixel should be in
-                    let p = Math.floor((i/pixelArr,length) * canvasCount);
-                    let a = imageDataArray[weightedRandomDistrib(p)];
-                    a[i] = pixelArr[i];
-                    a[i+1] = pixelArr[i+1];
-                }
-            })
-            
-        });
-    </script>
-       
+                <img src="./public/artwork/black-panther.png">
+                <button id="start-btn">Snap!</button>
+              </div>
+    <script src="./public/js/snapEffect.js"></script>
 </body>
 </html>
